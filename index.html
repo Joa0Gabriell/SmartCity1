@@ -1,0 +1,3269 @@
+
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart City - Teresina</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+
+--green:#214f3d;
+
+--green2:#397c58;
+
+--pale:#e8f2eb;
+
+--ink:#203129;
+
+--muted:#718078;
+
+--line:#e4ece6;
+
+--bg:#f7f9f8;
+
+--shadow:0 8px 28px rgba(27,59,42,.06);
+
+}
+
+*{box-sizing:border-box}
+
+html{
+
+scroll-behavior:smooth;
+
+scroll-padding-top:90px;
+
+}
+
+body{
+
+margin:0;
+
+background:var(--bg);
+
+color:var(--ink);
+
+font:14px/1.6 'DM Sans',Arial,sans-serif;
+
+}
+
+button,input,select,textarea{font:inherit}
+
+button{cursor:pointer}
+
+a{text-decoration:none;color:inherit}
+
+button:focus-visible,
+
+a:focus-visible,
+
+input:focus-visible,
+
+select:focus-visible,
+
+textarea:focus-visible{
+
+outline:3px solid #76b18c;
+
+outline-offset:3px;
+
+}
+
+h1,h2,h3,h4,p{margin-top:0}
+
+h2{
+
+font-size:clamp(25px,3vw,36px);
+
+letter-spacing:-.9px;
+
+line-height:1.22;
+
+}
+
+h3{line-height:1.35}
+
+p{color:var(--muted)}
+
+/* CABEÇALHO */
+
+.header{
+
+min-height:76px;
+
+padding:0 5%;
+
+display:flex;
+
+align-items:center;
+
+gap:32px;
+
+background:#fff;
+
+border-bottom:1px solid var(--line);
+
+position:sticky;
+
+top:0;
+
+z-index:50;
+
+}
+
+.brand{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+color:var(--green);
+
+line-height:1.15;
+
+white-space:nowrap;
+
+}
+
+.brand-icon{font-size:38px;line-height:1}
+
+.brand b{
+
+display:block;
+
+font-size:15px;
+
+letter-spacing:1px;
+
+}
+
+.brand small{
+
+display:block;
+
+font-size:9px;
+
+letter-spacing:1.5px;
+
+margin-top:4px;
+
+}
+
+.header nav{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:22px;
+
+flex:1;
+
+}
+
+.header nav a{
+
+font-size:12px;
+
+color:#596b60;
+
+}
+
+.header nav a:hover,footer a:hover{color:var(--green2)}
+
+.header-action,.btn{
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:7px;
+
+background:var(--green);
+
+color:#fff;
+
+border:1px solid var(--green);
+
+border-radius:9px;
+
+padding:11px 18px;
+
+font-size:12px;
+
+font-weight:700;
+
+transition:.2s;
+
+}
+
+.header-action:hover,.btn:hover{
+
+background:#153b2a;
+
+transform:translateY(-1px);
+
+}
+
+.menu-toggle{
+
+display:none;
+
+background:none;
+
+border:0;
+
+font-size:25px;
+
+color:var(--green);
+
+}
+
+/* APRESENTAÇÃO */
+
+.hero{
+
+min-height:450px;
+
+display:grid;
+
+grid-template-columns:43% 57%;
+
+background:#fff;
+
+overflow:hidden;
+
+}
+
+.hero-content{
+
+padding:75px 4% 65px 12%;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.eyebrow{
+
+display:block;
+
+color:var(--green2);
+
+font-size:10px;
+
+letter-spacing:1.5px;
+
+font-weight:800;
+
+margin-bottom:12px;
+
+}
+
+.hero h1{
+
+font-size:clamp(36px,4.1vw,61px);
+
+line-height:1.09;
+
+letter-spacing:-2px;
+
+margin:0 0 19px;
+
+}
+
+.hero h1 em{
+
+color:var(--green);
+
+font-style:normal;
+
+}
+
+.hero p{font-size:14px;max-width:380px}
+
+.hero-note{
+
+font-size:10px;
+
+color:#88988e;
+
+margin-top:28px;
+
+}
+
+/* SEÇÕES */
+
+.section{
+
+padding:72px 5%;
+
+max-width:1500px;
+
+margin:auto;
+
+}
+
+.section-heading{
+
+text-align:center;
+
+margin-bottom:32px;
+
+}
+
+.section-heading p{
+
+margin:7px auto 0;
+
+max-width:560px;
+
+}
+
+.section-heading h2{margin-bottom:0}
+
+.solution-grid{
+
+display:grid;
+
+grid-template-columns:repeat(3,minmax(0,1fr));
+
+gap:16px;
+
+}
+
+.solution-card,.panel,.metric{
+
+background:#fff;
+
+border:1px solid var(--line);
+
+border-radius:15px;
+
+box-shadow:var(--shadow);
+
+}
+
+.solution-card{
+
+padding:26px;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:flex-start;
+
+transition:.2s;
+
+}
+
+.solution-card:hover{
+
+transform:translateY(-4px);
+
+border-color:#c5dccc;
+
+}
+
+.solution-icon{
+
+font-size:25px;
+
+background:var(--pale);
+
+border-radius:13px;
+
+width:53px;
+
+height:53px;
+
+display:grid;
+
+place-items:center;
+
+margin-bottom:17px;
+
+}
+
+.solution-card h3{font-size:16px;margin:0 0 8px}
+
+.solution-card p{font-size:12px;flex:1}
+
+.solution-card a{
+
+font-size:12px;
+
+font-weight:800;
+
+color:var(--green);
+
+margin-top:10px;
+
+}
+
+/* CENTRAL SMART CITY */
+
+.central-section{
+
+max-width:none;
+
+background:#f0f5f2;
+
+}
+
+.central-shell{max-width:1350px;margin:auto}
+
+.central-top{
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+gap:15px;
+
+margin-bottom:22px;
+
+}
+
+.central-top h2{margin:0 0 6px}
+
+.central-top p{margin:0}
+
+.status-pill,.mini-pill{
+
+background:var(--pale);
+
+color:var(--green2);
+
+font-size:10px;
+
+font-weight:800;
+
+border-radius:30px;
+
+padding:8px 12px;
+
+white-space:nowrap;
+
+}
+
+.metric-grid{
+
+display:grid;
+
+grid-template-columns:repeat(3,minmax(0,1fr));
+
+gap:12px;
+
+margin-bottom:18px;
+
+}
+
+.metric{padding:19px}
+
+.metric span,.metric small{
+
+display:block;
+
+font-size:11px;
+
+color:var(--muted);
+
+}
+
+.metric strong{
+
+display:block;
+
+font-size:24px;
+
+line-height:1.3;
+
+margin:7px 0;
+
+color:var(--green);
+
+}
+
+.central-content{
+
+display:grid;
+
+grid-template-columns:1.3fr 1fr;
+
+gap:18px;
+
+}
+
+.panel{padding:22px;min-width:0}
+
+.panel-head{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:flex-start;
+
+gap:12px;
+
+margin-bottom:16px;
+
+}
+
+.panel-head h3{margin:0 0 3px;font-size:16px}
+
+.panel-head p{font-size:11px;margin:0}
+
+/* MAPA */
+
+.map{
+
+height:355px;
+
+overflow:hidden;
+
+position:relative;
+
+border-radius:12px;
+
+background:
+
+repeating-linear-gradient(0deg,transparent 0 48px,#d8e7d9 49px 51px),
+
+repeating-linear-gradient(90deg,#e8f0e8 0 69px,#d8e7d9 70px 72px);
+
+}
+
+.map-river{
+
+position:absolute;
+
+width:70px;
+
+height:150%;
+
+left:43%;
+
+top:-25%;
+
+background:#bedee7;
+
+transform:rotate(28deg);
+
+border:5px solid #e0f1f2;
+
+border-radius:45%;
+
+}
+
+.map-road{
+
+position:absolute;
+
+background:#fff;
+
+border:2px solid #d8e0d8;
+
+height:15px;
+
+width:125%;
+
+left:-12%;
+
+top:50%;
+
+}
+
+.road-a{transform:rotate(-23deg)}
+
+.road-b{transform:rotate(37deg)}
+
+.road-c{transform:rotate(75deg)}
+
+.map-pin{
+
+position:absolute;
+
+z-index:2;
+
+display:flex;
+
+align-items:center;
+
+gap:5px;
+
+background:white;
+
+border:1px solid #e4ece6;
+
+border-radius:30px;
+
+padding:7px 10px;
+
+font-size:18px;
+
+box-shadow:0 3px 10px #26433120;
+
+white-space:nowrap;
+
+}
+
+.map-pin span{font-size:10px;font-weight:700}
+
+.map-pin:hover{transform:scale(1.06)}
+
+.pin-a{top:16%;left:13%}
+
+.pin-b{top:42%;left:37%}
+
+.pin-c{top:35%;right:6%}
+
+.pin-d{bottom:14%;left:23%}
+
+.compass{
+
+position:absolute;
+
+bottom:10px;
+
+right:12px;
+
+font-size:12px;
+
+font-weight:800;
+
+}
+
+.map-message{
+
+margin:12px 0 0;
+
+color:var(--green);
+
+font-size:12px;
+
+}
+
+/* ATIVIDADES */
+
+.activity-list{
+
+margin:0;
+
+padding:0;
+
+list-style:none;
+
+max-height:395px;
+
+overflow:auto;
+
+}
+
+.activity-list li{
+
+padding:13px 0;
+
+border-bottom:1px solid var(--line);
+
+display:flex;
+
+gap:10px;
+
+}
+
+.activity-list li::before{
+
+content:'●';
+
+color:var(--green2);
+
+font-size:11px;
+
+}
+
+.activity-list b{display:block;font-size:12px}
+
+.activity-list small{font-size:10px;color:var(--muted)}
+
+.text-button{
+
+background:transparent;
+
+border:1px solid var(--line);
+
+border-radius:7px;
+
+color:var(--green);
+
+font-size:11px;
+
+padding:7px 10px;
+
+}
+
+.disclaimer{font-size:11px;margin:17px 0 0}
+
+/* SIMULADORES */
+
+.tabs{
+
+display:flex;
+
+gap:10px;
+
+flex-wrap:wrap;
+
+margin-bottom:18px;
+
+}
+
+.tab{
+
+padding:12px 19px;
+
+background:#e9eeee;
+
+border:1px solid transparent;
+
+border-radius:9px;
+
+color:#4d5e53;
+
+font-weight:700;
+
+font-size:12px;
+
+}
+
+.tab.active{background:var(--green);color:#fff}
+
+.sim-panel{
+
+display:grid;
+
+grid-template-columns:1.1fr 1fr;
+
+gap:25px;
+
+padding:18px;
+
+background:white;
+
+border:1px solid var(--line);
+
+border-radius:16px;
+
+box-shadow:var(--shadow);
+
+}
+
+.sim-panel[hidden]{display:none}
+
+.sim-visual{
+
+position:relative;
+
+min-height:320px;
+
+border-radius:12px;
+
+overflow:hidden;
+
+}
+
+.sim-info{padding:24px 12px 15px}
+
+.sim-info h3{font-size:24px;margin:0 0 12px}
+
+.sim-info p{font-size:13px}
+
+.detail-row{
+
+display:flex;
+
+justify-content:space-between;
+
+gap:15px;
+
+padding:12px 0;
+
+border-bottom:1px solid var(--line);
+
+font-size:12px;
+
+}
+
+.detail-row strong{color:var(--green);text-align:right}
+
+.button-row{
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:10px;
+
+margin-top:24px;
+
+}
+
+.btn-outline{background:white;color:var(--green)}
+
+.btn-outline:hover{background:var(--pale)}
+
+/* TRÂNSITO */
+
+.traffic-scene{
+
+background:repeating-linear-gradient(90deg,#a5c4a7 0 60px,#b3cdb2 61px 120px);
+
+}
+
+.street{position:absolute;background:#566761}
+
+.street-horizontal{height:95px;width:100%;top:36%}
+
+.street-vertical{height:100%;width:105px;left:40%}
+
+.street-horizontal::before{
+
+content:'';
+
+position:absolute;
+
+top:46px;
+
+width:100%;
+
+border-top:3px dashed #dfe6ce;
+
+}
+
+.street-vertical::before{
+
+content:'';
+
+position:absolute;
+
+left:51px;
+
+height:100%;
+
+border-left:3px dashed #dfe6ce;
+
+}
+
+.crosswalk{
+
+position:absolute;
+
+background:repeating-linear-gradient(90deg,#fff 0 7px,transparent 7px 13px);
+
+height:27px;
+
+width:85px;
+
+z-index:1;
+
+}
+
+.cross-a{top:29%;left:42%}
+
+.cross-b{bottom:28%;left:42%}
+
+.car{position:absolute;font-size:38px;z-index:2}
+
+.car-one{top:40%;left:13%}
+
+.car-two{bottom:13%;right:18%;transform:rotate(-90deg)}
+
+.traffic-light{
+
+position:absolute;
+
+top:39%;
+
+left:58%;
+
+background:#263c30;
+
+padding:8px;
+
+border-radius:12px;
+
+display:grid;
+
+gap:5px;
+
+z-index:3;
+
+}
+
+.traffic-light i{
+
+width:22px;
+
+height:22px;
+
+border-radius:50%;
+
+opacity:.25;
+
+}
+
+.traffic-light .red{background:#fa4444}
+
+.traffic-light .yellow{background:#ffcf3d}
+
+.traffic-light .green{background:#49da73}
+
+.traffic-light i.lit{
+
+opacity:1;
+
+box-shadow:0 0 13px currentColor;
+
+}
+
+/* CHUVA */
+
+.rain-scene{
+
+background:linear-gradient(#556e7c,#94b8c2);
+
+display:grid;
+
+place-items:center;
+
+}
+
+.rain-cloud{
+
+font-size:110px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.water{
+
+position:absolute;
+
+bottom:0;
+
+width:100%;
+
+height:32%;
+
+background:linear-gradient(#80bfdaaa,#3985ac);
+
+transition:height .6s;
+
+}
+
+.scene-label{
+
+position:absolute;
+
+bottom:15px;
+
+left:15px;
+
+z-index:3;
+
+background:#ffffffdf;
+
+border-radius:7px;
+
+padding:5px 10px;
+
+font-size:11px;
+
+}
+
+/* LIXEIRA */
+
+.trash-scene{
+
+background:linear-gradient(135deg,#e2f0e5,#a7c9ad);
+
+display:grid;
+
+place-items:center;
+
+}
+
+.bin{width:145px;position:relative}
+
+.bin-lid{
+
+height:21px;
+
+width:175px;
+
+background:#1b5137;
+
+border-radius:7px;
+
+position:relative;
+
+left:-15px;
+
+}
+
+.bin-body{
+
+height:195px;
+
+background:#23633f;
+
+border-radius:5px 5px 18px 18px;
+
+border:8px solid #174b31;
+
+overflow:hidden;
+
+position:relative;
+
+display:grid;
+
+place-items:center;
+
+}
+
+.bin-fill{
+
+position:absolute;
+
+bottom:0;
+
+left:0;
+
+width:100%;
+
+height:45%;
+
+background:#63b783;
+
+transition:height .5s;
+
+}
+
+.bin-body span{
+
+z-index:2;
+
+color:white;
+
+font-size:27px;
+
+font-weight:800;
+
+text-shadow:0 2px 4px #143e30;
+
+}
+
+/* ILUMINAÇÃO */
+
+.lamp-scene{
+
+background:linear-gradient(#14243c,#3d5367);
+
+transition:background .3s;
+
+}
+
+.lamp-scene.day{background:linear-gradient(#8dc8e8,#d7e9ef)}
+
+.lamp-post{
+
+position:absolute;
+
+height:215px;
+
+width:9px;
+
+background:#1c302d;
+
+bottom:0;
+
+left:48%;
+
+border-radius:6px;
+
+}
+
+.lamp-post::before{
+
+content:'';
+
+position:absolute;
+
+width:85px;
+
+height:8px;
+
+background:#1c302d;
+
+top:0;
+
+left:0;
+
+border-radius:6px;
+
+}
+
+.lamp-head{
+
+position:absolute;
+
+top:-22px;
+
+left:66px;
+
+font-size:28px;
+
+z-index:2;
+
+}
+
+.lamp-glow{
+
+position:absolute;
+
+left:45%;
+
+top:16%;
+
+width:180px;
+
+height:180px;
+
+border-radius:50%;
+
+background:#f6e9a447;
+
+filter:blur(22px);
+
+}
+
+.lamp-scene.day .lamp-glow,
+
+.lamp-scene.fault .lamp-glow{opacity:0}
+
+/* PORTAL */
+
+.portal-section{max-width:none;background:#fff}
+
+.portal-section>.section-heading,
+
+.portal-grid,.recent-panel{
+
+max-width:1350px;
+
+margin-left:auto;
+
+margin-right:auto;
+
+}
+
+.portal-grid{
+
+display:grid;
+
+grid-template-columns:1.3fr 1fr;
+
+gap:20px;
+
+}
+
+.portal-form>p{font-size:12px}
+
+.portal-form h3,.portal-result h3{font-size:20px}
+
+.portal-form form{display:grid;gap:15px}
+
+.form-row{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:14px;
+
+}
+
+label{
+
+display:grid;
+
+gap:7px;
+
+font-size:12px;
+
+font-weight:700;
+
+}
+
+input,select,textarea{
+
+width:100%;
+
+min-width:0;
+
+border:1px solid #dce6df;
+
+border-radius:8px;
+
+padding:12px;
+
+background:#fbfcfb;
+
+color:var(--ink);
+
+}
+
+textarea{resize:vertical}
+
+.submit{width:100%}
+
+.portal-result{background:#f9fcfa}
+
+.result-symbol{
+
+background:#d8f0df;
+
+color:var(--green);
+
+font-size:26px;
+
+border-radius:50%;
+
+width:48px;
+
+height:48px;
+
+display:grid;
+
+place-items:center;
+
+margin-bottom:15px;
+
+}
+
+.portal-result p{font-size:12px}
+
+.portal-result hr{
+
+border:0;
+
+border-top:1px solid var(--line);
+
+margin:25px 0;
+
+}
+
+.portal-result h4{margin:0 0 12px}
+
+.lookup{display:flex;gap:8px}
+
+.lookup-message{margin-top:12px;overflow-wrap:anywhere}
+
+.recent-panel{margin-top:18px}
+
+.report-list{display:grid;gap:10px}
+
+.report-item{
+
+display:flex;
+
+align-items:flex-start;
+
+justify-content:space-between;
+
+gap:12px;
+
+border:1px solid var(--line);
+
+padding:13px;
+
+border-radius:10px;
+
+}
+
+.report-item b{font-size:12px}
+
+.report-item small{
+
+display:block;
+
+color:var(--muted);
+
+font-size:10px;
+
+}
+
+.report-item p{
+
+margin:5px 0;
+
+font-size:12px;
+
+overflow-wrap:anywhere;
+
+}
+
+.report-item span{
+
+background:var(--pale);
+
+color:var(--green);
+
+font-size:10px;
+
+border-radius:20px;
+
+padding:5px 8px;
+
+white-space:nowrap;
+
+}
+
+/* GRÁFICOS */
+
+.data-grid{
+
+display:grid;
+
+grid-template-columns:1fr 1fr .7fr;
+
+gap:17px;
+
+}
+
+.bars{display:grid;gap:12px}
+
+.bar-line{
+
+display:grid;
+
+grid-template-columns:100px 1fr 25px;
+
+align-items:center;
+
+gap:9px;
+
+font-size:11px;
+
+}
+
+.bar-track{
+
+height:9px;
+
+background:#eaf1eb;
+
+border-radius:20px;
+
+overflow:hidden;
+
+}
+
+.bar-fill{
+
+height:100%;
+
+background:#58a476;
+
+border-radius:20px;
+
+}
+
+.summary strong{
+
+font-size:36px;
+
+color:var(--green);
+
+display:block;
+
+line-height:1.2;
+
+}
+
+.summary p{font-size:12px}
+
+/* RODAPÉ */
+
+footer{
+
+background:#fff;
+
+border-top:1px solid var(--line);
+
+padding:36px 5%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+gap:22px;
+
+}
+
+footer p,footer small{font-size:10px}
+
+footer>div:nth-child(2){
+
+display:flex;
+
+gap:18px;
+
+font-size:11px;
+
+}
+
+/* TABLETS */
+
+@media(max-width:1000px){
+
+.header{gap:16px}
+
+.header nav{gap:10px}
+
+.header nav a{font-size:11px}
+
+.hero-content{padding-left:8%}
+
+.solution-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+.central-content,.portal-grid{grid-template-columns:1fr}
+
+.data-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+.data-grid .summary{grid-column:span 2}
+
+}
+
+/* CELULARES */
+
+@media(max-width:700px){
+
+html{scroll-padding-top:68px}
+
+.header{
+
+height:65px;
+
+min-height:65px;
+
+padding:0 5%;
+
+}
+
+.header nav{
+
+display:none;
+
+position:absolute;
+
+top:65px;
+
+left:0;
+
+right:0;
+
+background:white;
+
+padding:18px 5%;
+
+box-shadow:var(--shadow);
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+.header nav.open{display:flex}
+
+.header nav a{
+
+font-size:14px;
+
+padding:5px 0;
+
+}
+
+.menu-toggle{
+
+display:block;
+
+margin-left:auto;
+
+padding:8px;
+
+}
+
+.header-action{display:none}
+
+.hero{
+
+display:flex;
+
+flex-direction:column;
+
+min-height:auto;
+
+}
+
+.hero-content{padding:45px 6% 43px}
+
+.hero h1{font-size:37px}
+
+.section{padding:50px 5%}
+
+.solution-grid{
+
+grid-template-columns:1fr 1fr;
+
+gap:10px;
+
+}
+
+.solution-card{padding:16px}
+
+.solution-card h3{font-size:14px}
+
+.solution-card p{font-size:11px}
+
+.central-top{
+
+align-items:flex-start;
+
+flex-direction:column;
+
+}
+
+.metric-grid{
+
+grid-template-columns:repeat(2,minmax(0,1fr));
+
+}
+
+.metric{padding:14px}
+
+.metric strong{font-size:20px}
+
+.panel{padding:16px}
+
+.map{height:290px}
+
+.map-pin{
+
+font-size:13px;
+
+padding:5px;
+
+}
+
+.map-pin span{font-size:9px}
+
+.pin-c{right:1%}
+
+.sim-panel{grid-template-columns:1fr}
+
+.sim-visual{min-height:245px}
+
+.sim-info{padding:8px}
+
+.tabs{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+}
+
+.tab{padding:11px 8px}
+
+.form-row{grid-template-columns:1fr}
+
+.lookup{flex-wrap:wrap}
+
+.lookup .btn{width:100%}
+
+.data-grid{grid-template-columns:1fr}
+
+.data-grid .summary{grid-column:auto}
+
+.bar-line{grid-template-columns:85px 1fr 20px}
+
+footer{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+footer>div:nth-child(2){
+
+flex-wrap:wrap;
+
+}
+
+}
+
+/* TELAS PEQUENAS */
+
+@media(max-width:380px){
+
+.solution-grid{grid-template-columns:1fr}
+
+.metric-grid{grid-template-columns:1fr 1fr}
+
+.metric span{font-size:10px}
+
+.tabs .tab{padding:10px}
+
+.map-pin span{display:none}
+
+.hero h1{font-size:34px}
+
+.button-row .btn{width:100%}
+
+.report-item{flex-direction:column}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- CABEÇALHO -->
+
+<header class="header">
+
+<a href="#inicio" class="brand">
+
+<span class="brand-icon">ᯓ★</span>
+
+<div>
+
+<b>SMART CITY</b>
+
+<small>TERESINA • PI</small>
+
+</div>
+
+</a>
+
+<nav id="nav">
+
+<a href="#inicio">Início</a>
+
+<a href="#solucoes">Soluções</a>
+
+<a href="#central">Central Smart</a>
+
+<a href="#portal">Portal do Cidadão</a>
+
+</nav>
+
+<a href="#portal" class="header-action">Participar</a>
+
+<button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+
+</header>
+
+<!-- APRESENTAÇÃO -->
+
+<section class="hero" id="inicio">
+
+<div class="hero-content">
+
+<span class="eyebrow">TERESINA • PIAUÍ</span>
+
+<h1>
+
+Uma cidade mais
+
+<em>inteligente</em>
+
+para todos.
+
+</h1>
+
+<p>
+
+Tecnologia, inovação e sustentabilidade para transformar Teresina em uma cidade mais conectada, eficiente e acolhedora.
+
+</p>
+
+<a href="#solucoes" class="btn">Conheça as soluções</a>
+
+<div class="hero-note">
+
+SMART CITY TERESINA · INOVAÇÃO PARA O FUTURO
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SOLUÇÕES -->
+
+<section class="section" id="solucoes">
+
+<div class="section-heading">
+
+<span class="eyebrow">TECNOLOGIA E INOVAÇÃO</span>
+
+<h2>Soluções inteligentes para a cidade</h2>
+
+<p>Recursos tecnológicos que ajudam a melhorar a qualidade de vida da população.</p>
+
+</div>
+
+<div class="solution-grid">
+
+<article class="solution-card">
+
+<div class="solution-icon">🚦</div>
+
+<h3>Mobilidade urbana</h3>
+
+<p>Monitoramento do trânsito e organização do fluxo de veículos.</p>
+
+<a href="#simuladores">Conhecer →</a>
+
+</article>
+
+<article class="solution-card">
+
+<div class="solution-icon">🌧️</div>
+
+<h3>Prevenção de alagamentos</h3>
+
+<p>Monitoramento de chuvas e identificação de áreas de risco.</p>
+
+<a href="#simuladores">Conhecer →</a>
+
+</article>
+
+<article class="solution-card">
+
+<div class="solution-icon">🗑️</div>
+
+<h3>Gestão de resíduos</h3>
+
+<p>Acompanhamento da capacidade das lixeiras e coleta inteligente.</p>
+
+<a href="#simuladores">Conhecer →</a>
+
+</article>
+
+<article class="solution-card">
+
+<div class="solution-icon">💡</div>
+
+<h3>Iluminação pública</h3>
+
+<p>Controle e monitoramento da iluminação dos espaços públicos.</p>
+
+<a href="#simuladores">Conhecer →</a>
+
+</article>
+
+<article class="solution-card">
+
+<div class="solution-icon">📹</div>
+
+<h3>Segurança urbana</h3>
+
+<p>Tecnologia para auxiliar no monitoramento dos espaços públicos.</p>
+
+<a href="#central">Conhecer →</a>
+
+</article>
+
+<article class="solution-card">
+
+<div class="solution-icon">🌳</div>
+
+<h3>Sustentabilidade</h3>
+
+<p>Incentivo à preservação ambiental e ao desenvolvimento sustentável.</p>
+
+<a href="#central">Conhecer →</a>
+
+</article>
+
+</div>
+
+</section>
+
+<!-- CENTRAL SMART CITY -->
+
+<section class="section central-section" id="central">
+
+<div class="central-shell">
+
+<div class="central-top">
+
+<div>
+
+<span class="eyebrow">MONITORAMENTO URBANO</span>
+
+<h2>Central Smart City</h2>
+
+<p>Acompanhe os indicadores demonstrativos da cidade.</p>
+
+</div>
+
+<span class="status-pill">● Sistema demonstrativo</span>
+
+</div>
+
+<div class="metric-grid">
+
+<div class="metric">
+
+<span>Fluxo de trânsito</span>
+
+<strong id="metricTraffic">Moderado</strong>
+
+<small id="metricTrafficDetail">Cenário simulado</small>
+
+</div>
+
+<div class="metric">
+
+<span>Nível de chuva</span>
+
+<strong id="metricRain">32%</strong>
+
+<small id="metricRainDetail">Normal</small>
+
+</div>
+
+<div class="metric">
+
+<span>Capacidade das lixeiras</span>
+
+<strong id="metricTrash">45%</strong>
+
+<small id="metricTrashDetail">Disponível</small>
+
+</div>
+
+<div class="metric">
+
+<span>Iluminação operante</span>
+
+<strong id="metricLight">98%</strong>
+
+<small id="metricLightDetail">Pontos operantes</small>
+
+</div>
+
+<div class="metric">
+
+<span>Ocorrências registradas</span>
+
+<strong id="metricReports">0</strong>
+
+<small>Registros locais</small>
+
+</div>
+
+<div class="metric">
+
+<span>Regiões monitoradas</span>
+
+<strong id="summaryRegions">96</strong>
+
+<small>Dados demonstrativos</small>
+
+</div>
+
+</div>
+
+<div class="central-content">
+
+<div class="panel">
+
+<div class="panel-head">
+
+<div>
+
+<h3>Mapa inteligente</h3>
+
+<p>Áreas ilustrativas de monitoramento.</p>
+
+</div>
+
+<span class="mini-pill">Teresina</span>
+
+</div>
+
+<div class="map">
+
+<div class="map-river"></div>
+
+<div class="map-road road-a"></div>
+
+<div class="map-road road-b"></div>
+
+<div class="map-road road-c"></div>
+
+<button class="map-pin pin-a" data-point="Centro">📍 <span>Centro</span></button>
+
+<button class="map-pin pin-b" data-point="Zona Leste">📍 <span>Zona Leste</span></button>
+
+<button class="map-pin pin-c" data-point="Zona Norte">📍 <span>Zona Norte</span></button>
+
+<button class="map-pin pin-d" data-point="Zona Sul">📍 <span>Zona Sul</span></button>
+
+<span class="compass">N ↑</span>
+
+</div>
+
+<p class="map-message" id="mapMessage">Selecione uma região para visualizar informações.</p>
+
+</div>
+
+<div class="panel">
+
+<div class="panel-head">
+
+<div>
+
+<h3>Atividades recentes</h3>
+
+<p>Atualizações dos simuladores.</p>
+
+</div>
+
+<button class="text-button" id="clearActivity">Limpar</button>
+
+</div>
+
+<ul class="activity-list" id="activityList"></ul>
+
+<p class="disclaimer">
+
+Os dados apresentados são fictícios e utilizados apenas para demonstração acadêmica.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SIMULADORES -->
+
+<section class="section" id="simuladores">
+
+<div class="section-heading">
+
+<span class="eyebrow">INTERAÇÃO E TECNOLOGIA</span>
+
+<h2>Simuladores inteligentes</h2>
+
+<p>Experimente algumas funcionalidades do projeto.</p>
+
+</div>
+
+<div class="tabs">
+
+<button class="tab active" data-tab="traffic">🚦 Trânsito</button>
+
+<button class="tab" data-tab="rain">🌧️ Chuva</button>
+
+<button class="tab" data-tab="trash">🗑️ Lixeira</button>
+
+<button class="tab" data-tab="light">💡 Iluminação</button>
+
+</div>
+
+<!-- TRÂNSITO -->
+
+<div class="sim-panel" id="panel-traffic">
+
+<div class="sim-visual traffic-scene">
+
+<div class="street street-horizontal"></div>
+
+<div class="street street-vertical"></div>
+
+<div class="crosswalk cross-a"></div>
+
+<div class="crosswalk cross-b"></div>
+
+<span class="car car-one">🚗</span>
+
+<span class="car car-two">🚙</span>
+
+<div class="traffic-light">
+
+<i class="red lit" id="redLight"></i>
+
+<i class="green" id="greenLight"></i>
+
+<i class="yellow" id="yellowLight"></i>
+
+</div>
+
+</div>
+
+<div class="sim-info">
+
+<span class="eyebrow">MOBILIDADE URBANA</span>
+
+<h3>Controle de trânsito</h3>
+
+<p>Simule alterações no fluxo de veículos e no funcionamento do semáforo.</p>
+
+<div class="detail-row">
+
+<span>Fluxo atual</span>
+
+<strong id="trafficFlow">Moderado</strong>
+
+</div>
+
+<div class="detail-row">
+
+<span>Semáforo</span>
+
+<strong id="trafficSignal">Vermelho</strong>
+
+</div>
+
+<div class="button-row">
+
+<button class="btn" id="trafficButton">Atualizar trânsito</button>
+
+<button class="btn btn-outline" id="ambulanceButton">🚑 Prioridade</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CHUVA -->
+
+<div class="sim-panel" id="panel-rain" hidden>
+
+<div class="sim-visual rain-scene">
+
+<div class="rain-cloud">🌧️</div>
+
+<div class="water" id="waterLevel"></div>
+
+<span class="scene-label" id="rainSceneLabel">Normal</span>
+
+</div>
+
+<div class="sim-info">
+
+<span class="eyebrow">PREVENÇÃO DE ALAGAMENTOS</span>
+
+<h3>Sensor de chuva</h3>
+
+<p>Simule o aumento do nível de chuva e acompanhe os indicadores de risco.</p>
+
+<div class="detail-row">
+
+<span>Nível de chuva</span>
+
+<strong id="rainValue">32%</strong>
+
+</div>
+
+<div class="detail-row">
+
+<span>Situação</span>
+
+<strong id="rainRisk">Normal</strong>
+
+</div>
+
+<div class="button-row">
+
+<button class="btn" id="rainButton">Aumentar chuva</button>
+
+<button class="btn btn-outline" id="rainReset">Reiniciar</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- LIXEIRA -->
+
+<div class="sim-panel" id="panel-trash" hidden>
+
+<div class="sim-visual trash-scene">
+
+<div class="bin">
+
+<div class="bin-lid"></div>
+
+<div class="bin-body">
+
+<div class="bin-fill" id="binFill"></div>
+
+<span id="binLabel">45%</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="sim-info">
+
+<span class="eyebrow">GESTÃO DE RESÍDUOS</span>
+
+<h3>Lixeira inteligente</h3>
+
+<p>Acompanhe a capacidade da lixeira e simule a coleta de resíduos.</p>
+
+<div class="detail-row">
+
+<span>Capacidade</span>
+
+<strong id="trashValue">45%</strong>
+
+</div>
+
+<div class="detail-row">
+
+<span>Situação</span>
+
+<strong id="trashStatus">Disponível</strong>
+
+</div>
+
+<div class="button-row">
+
+<button class="btn" id="trashButton">Adicionar resíduos</button>
+
+<button class="btn btn-outline" id="trashCollect">Simular coleta</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ILUMINAÇÃO -->
+
+<div class="sim-panel" id="panel-light" hidden>
+
+<div class="sim-visual lamp-scene" id="lampScene">
+
+<div class="lamp-glow"></div>
+
+<div class="lamp-post">
+
+<span class="lamp-head">💡</span>
+
+</div>
+
+<span class="scene-label" id="lampSceneLabel">Iluminação noturna</span>
+
+</div>
+
+<div class="sim-info">
+
+<span class="eyebrow">ILUMINAÇÃO PÚBLICA</span>
+
+<h3>Monitoramento de iluminação</h3>
+
+<p>Alterne entre dia e noite e simule uma falha na iluminação pública.</p>
+
+<div class="detail-row">
+
+<span>Período</span>
+
+<strong id="lightPeriod">Noite</strong>
+
+</div>
+
+<div class="detail-row">
+
+<span>Funcionamento</span>
+
+<strong id="lightValue">98%</strong>
+
+</div>
+
+<div class="button-row">
+
+<button class="btn" id="dayNightButton">Alternar dia/noite</button>
+
+<button class="btn btn-outline" id="lightFaultButton">Simular falha</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PORTAL DO CIDADÃO -->
+
+<section class="section portal-section" id="portal">
+
+<div class="section-heading">
+
+<span class="eyebrow">PARTICIPAÇÃO POPULAR</span>
+
+<h2>Portal do Cidadão</h2>
+
+<p>Registre ocorrências e acompanhe os protocolos.</p>
+
+</div>
+
+<div class="portal-grid">
+
+<div class="panel portal-form">
+
+<h3>Registrar ocorrência</h3>
+
+<p>Preencha os dados abaixo para registrar uma ocorrência demonstrativa.</p>
+
+<form id="citizenForm">
+
+<div class="form-row">
+
+<label>
+
+Nome
+
+<input type="text" id="name" required placeholder="Seu nome">
+
+</label>
+
+<label>
+
+Tipo de ocorrência
+
+<select id="type" required>
+
+<option value="">Selecione</option>
+
+<option value="Alagamento">Alagamento</option>
+
+<option value="Iluminação">Iluminação</option>
+
+<option value="Lixo">Acúmulo de lixo</option>
+
+<option value="Trânsito">Trânsito</option>
+
+<option value="Segurança">Segurança</option>
+
+<option value="Outro">Outro</option>
+
+</select>
+
+</label>
+
+</div>
+
+<div class="form-row">
+
+<label>
+
+Região
+
+<select id="region" required>
+
+<option value="">Selecione</option>
+
+<option value="Centro">Centro</option>
+
+<option value="Zona Norte">Zona Norte</option>
+
+<option value="Zona Sul">Zona Sul</option>
+
+<option value="Zona Leste">Zona Leste</option>
+
+<option value="Zona Sudeste">Zona Sudeste</option>
+
+</select>
+
+</label>
+
+<label>
+
+Bairro
+
+<input type="text" id="neighborhood" required placeholder="Nome do bairro">
+
+</label>
+
+</div>
+
+<label>
+
+Descrição
+
+<textarea id="description" rows="4" required placeholder="Descreva a ocorrência..."></textarea>
+
+</label>
+
+<button type="submit" class="btn submit">Registrar ocorrência</button>
+
+</form>
+
+</div>
+
+<div class="panel portal-result">
+
+<div class="result-symbol">✓</div>
+
+<h3 id="resultTitle">Acompanhe seu registro</h3>
+
+<p id="resultText">Após registrar uma ocorrência, o protocolo será exibido aqui.</p>
+
+<div id="resultDetails" hidden>
+
+<hr>
+
+<h4>Protocolo</h4>
+
+<strong id="resultProtocol"></strong>
+
+<br><br>
+
+<button class="text-button" id="copyProtocol">Copiar protocolo</button>
+
+</div>
+
+<hr>
+
+<h4>Consultar protocolo</h4>
+
+<div class="lookup">
+
+<input type="text" id="lookupInput" placeholder="Digite seu protocolo">
+
+<button class="btn" id="lookupButton">Consultar</button>
+
+</div>
+
+<p class="lookup-message" id="lookupMessage"></p>
+
+</div>
+
+</div>
+
+<!-- REGISTROS -->
+
+<div class="panel recent-panel">
+
+<div class="panel-head">
+
+<div>
+
+<h3>Registros da comunidade</h3>
+
+<p>Ocorrências armazenadas neste navegador.</p>
+
+</div>
+
+<button class="text-button" id="clearReports">Limpar registros</button>
+
+</div>
+
+<div class="data-grid">
+
+<div>
+
+<h4>Por tipo</h4>
+
+<div class="bars" id="typeChart"></div>
+
+</div>
+
+<div>
+
+<h4>Por região</h4>
+
+<div class="bars" id="regionChart"></div>
+
+</div>
+
+<div class="summary">
+
+<span>Total de registros</span>
+
+<strong id="summaryTotal">0</strong>
+
+<p>Ocorrências registradas.</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<h4>Últimas ocorrências</h4>
+
+<div class="report-list" id="reportList"></div>
+
+</div>
+
+<p class="disclaimer">
+
+Projeto acadêmico demonstrativo. Os sensores e indicadores são simulados e os registros ficam armazenados localmente.
+
+</p>
+
+</section>
+
+<!-- RODAPÉ -->
+
+<footer>
+
+<div>
+
+<a href="#inicio" class="brand">
+
+<span class="brand-icon">ᯓ★</span>
+
+<div>
+
+<b>SMART CITY</b>
+
+<small>TERESINA • PI</small>
+
+</div>
+
+</a>
+
+<p>Projeto desenvolvido por alunos da escola Paulo Ferraz.</p>
+
+<small>Projeto acadêmico demonstrativo.</small>
+
+</div>
+
+<div>
+
+<a href="#inicio">Início</a>
+
+<a href="#solucoes">Soluções</a>
+
+<a href="#central">Central Smart</a>
+
+<a href="#portal">Portal do Cidadão</a>
+
+</div>
+
+</footer>
+
+<script>
+
+'use strict';
+
+const $ = id => document.getElementById(id);
+
+const STORAGE_KEY = 'smartcity_teresina_reports_v1';
+
+const state = {
+
+traffic:0,
+
+signal:0,
+
+rain:32,
+
+trash:45,
+
+night:true,
+
+fault:false
+
+};
+
+const signals = ['Vermelho','Verde','Amarelo'];
+
+const now = () => new Date().toLocaleTimeString('pt-BR',{
+
+hour:'2-digit',
+
+minute:'2-digit'
+
+});
+
+function activity(title,detail='Cenário demonstrativo'){
+
+const li=document.createElement('li');
+
+const content=document.createElement('div');
+
+const strong=document.createElement('b');
+
+strong.textContent=title;
+
+const small=document.createElement('small');
+
+small.textContent=`${now()} · ${detail}`;
+
+content.append(strong,small);
+
+li.append(content);
+
+$('activityList').prepend(li);
+
+while($('activityList').children.length>8){
+
+$('activityList').lastElementChild.remove();
+
+}
+
+}
+
+/* MENU */
+
+function showTab(name){
+
+document.querySelectorAll('.tab').forEach(btn=>{
+
+const active=btn.dataset.tab===name;
+
+btn.classList.toggle('active',active);
+
+btn.setAttribute('aria-selected',String(active));
+
+});
+
+document.querySelectorAll('.sim-panel').forEach(panel=>{
+
+const active=panel.id===`panel-${name}`;
+
+panel.hidden=!active;
+
+panel.classList.toggle('active',active);
+
+});
+
+}
+
+document.querySelectorAll('[data-tab]').forEach(el=>{
+
+el.addEventListener('click',()=>showTab(el.dataset.tab));
+
+});
+
+$('menuToggle').addEventListener('click',()=>{
+
+const open=$('nav').classList.toggle('open');
+
+$('menuToggle').setAttribute('aria-expanded',String(open));
+
+$('menuToggle').textContent=open?'✕':'☰';
+
+});
+
+document.querySelectorAll('#nav a').forEach(a=>{
+
+a.addEventListener('click',()=>{
+
+$('nav').classList.remove('open');
+
+$('menuToggle').setAttribute('aria-expanded','false');
+
+$('menuToggle').textContent='☰';
+
+});
+
+});
+
+/* MAPA */
+
+document.querySelectorAll('.map-pin').forEach(pin=>{
+
+pin.addEventListener('click',()=>{
+
+$('mapMessage').textContent=
+
+pin.dataset.point+' · Dados fictícios.';
+
+});
+
+});
+
+/* ATIVIDADES */
+
+$('clearActivity').addEventListener('click',()=>{
+
+$('activityList').replaceChildren();
+
+activity('Painel de atividades reiniciado');
+
+});
+
+/* TRÂNSITO */
+
+function renderTraffic(){
+
+const flows=['Moderado','Intenso','Baixo'];
+
+$('trafficFlow').textContent=flows[state.traffic];
+
+$('metricTraffic').textContent=flows[state.traffic];
+
+$('metricTrafficDetail').textContent=
+
+state.traffic===1?'Atenção ao fluxo':'Cenário simulado';
+
+$('trafficSignal').textContent=signals[state.signal];
+
+['redLight','greenLight','yellowLight'].forEach((id,index)=>{
+
+$(id).classList.toggle('lit',index===state.signal);
+
+});
+
+}
+
+$('trafficButton').addEventListener('click',()=>{
+
+state.traffic=(state.traffic+1)%3;
+
+state.signal=(state.signal+1)%3;
+
+renderTraffic();
+
+activity(
+
+'Trânsito atualizado',
+
+`Fluxo ${$('trafficFlow').textContent.toLowerCase()}`
+
+);
+
+});
+
+$('ambulanceButton').addEventListener('click',()=>{
+
+state.signal=1;
+
+renderTraffic();
+
+activity('Prioridade para ambulância','Sinal verde simulado');
+
+});
+
+/* CHUVA */
+
+function renderRain(){
+
+const risk=
+
+state.rain>=75?'Risco alto':
+
+state.rain>=50?'Atenção':
+
+'Normal';
+
+$('rainValue').textContent=
+
+$('metricRain').textContent=state.rain+'%';
+
+$('rainRisk').textContent=risk;
+
+$('rainSceneLabel').textContent=risk;
+
+$('metricRainDetail').textContent=risk;
+
+$('waterLevel').style.height=
+
+Math.max(10,state.rain)+'%';
+
+}
+
+$('rainButton').addEventListener('click',()=>{
+
+state.rain=Math.min(100,state.rain+23);
+
+renderRain();
+
+activity('Sensor de chuva atualizado',$('rainRisk').textContent);
+
+});
+
+$('rainReset').addEventListener('click',()=>{
+
+state.rain=32;
+
+renderRain();
+
+activity('Chuva restaurada','Nível inicial');
+
+});
+
+/* LIXEIRA */
+
+function renderTrash(){
+
+const status=
+
+state.trash>=80?'Coleta necessária':
+
+state.trash>=60?'Quase cheia':
+
+'Disponível';
+
+$('trashValue').textContent=
+
+$('binLabel').textContent=
+
+$('metricTrash').textContent=state.trash+'%';
+
+$('trashStatus').textContent=
+
+$('metricTrashDetail').textContent=status;
+
+$('binFill').style.height=state.trash+'%';
+
+}
+
+$('trashButton').addEventListener('click',()=>{
+
+state.trash=Math.min(100,state.trash+18);
+
+renderTrash();
+
+activity('Lixeira atualizada',$('trashStatus').textContent);
+
+});
+
+$('trashCollect').addEventListener('click',()=>{
+
+state.trash=10;
+
+renderTrash();
+
+activity('Coleta simulada','Lixeira esvaziada');
+
+});
+
+/* ILUMINAÇÃO */
+
+function renderLight(){
+
+$('lampScene').classList.toggle('day',!state.night);
+
+$('lampScene').classList.toggle('fault',state.fault);
+
+$('lightPeriod').textContent=state.night?'Noite':'Dia';
+
+$('lightValue').textContent=
+
+$('metricLight').textContent=state.fault?'25%':'98%';
+
+$('metricLightDetail').textContent=
+
+state.fault?'Falha demonstrativa':'Pontos operantes';
+
+$('lampSceneLabel').textContent=
+
+state.fault?'Falha simulada':
+
+state.night?'Iluminação noturna':
+
+'Iluminação diurna';
+
+}
+
+$('dayNightButton').addEventListener('click',()=>{
+
+state.night=!state.night;
+
+renderLight();
+
+activity('Período alterado',$('lightPeriod').textContent);
+
+});
+
+$('lightFaultButton').addEventListener('click',()=>{
+
+state.fault=!state.fault;
+
+renderLight();
+
+$('lightFaultButton').textContent=
+
+state.fault?'Restaurar iluminação':'Simular falha';
+
+activity(
+
+state.fault?'Falha na iluminação':'Iluminação restaurada'
+
+);
+
+});
+
+/* ARMAZENAMENTO */
+
+function getReports(){
+
+try{
+
+const data=JSON.parse(
+
+localStorage.getItem(STORAGE_KEY)||'[]'
+
+);
+
+return Array.isArray(data)?data:[];
+
+}catch{
+
+return [];
+
+}
+
+}
+
+function saveReports(reports){
+
+try{
+
+localStorage.setItem(
+
+STORAGE_KEY,
+
+JSON.stringify(reports)
+
+);
+
+return true;
+
+}catch{
+
+return false;
+
+}
+
+}
+
+/* PROTOCOLOS */
+
+function makeProtocol(reports){
+
+const year=new Date().getFullYear();
+
+let value;
+
+do{
+
+value=`THE-${year}-${Math.random()
+
+.toString(36)
+
+.slice(2,8)
+
+.toUpperCase()}`;
+
+}while(reports.some(r=>r.protocol===value));
+
+return value;
+
+}
+
+function showReport(report){
+
+$('resultTitle').textContent='Ocorrência registrada!';
+
+$('resultText').textContent=
+
+`${report.type} · ${report.region} · ${report.neighborhood}`;
+
+$('resultProtocol').textContent=report.protocol;
+
+$('resultDetails').hidden=false;
+
+}
+
+/* GRÁFICOS */
+
+function barChart(target,items){
+
+const root=$(target);
+
+root.replaceChildren();
+
+if(!items.length){
+
+const p=document.createElement('p');
+
+p.textContent='Sem registros por enquanto.';
+
+root.append(p);
+
+return;
+
+}
+
+const max=Math.max(...items.map(([,count])=>count));
+
+items.forEach(([label,count])=>{
+
+const row=document.createElement('div');
+
+row.className='bar-line';
+
+const name=document.createElement('span');
+
+name.textContent=label;
+
+const track=document.createElement('div');
+
+track.className='bar-track';
+
+const fill=document.createElement('div');
+
+fill.className='bar-fill';
+
+fill.style.width=`${count/max*100}%`;
+
+track.append(fill);
+
+const number=document.createElement('b');
+
+number.textContent=count;
+
+row.append(name,track,number);
+
+root.append(row);
+
+});
+
+}
+
+function counts(reports,key){
+
+const values=new Map();
+
+reports.forEach(r=>{
+
+values.set(
+
+r[key],
+
+(values.get(r[key])||0)+1
+
+);
+
+});
+
+return [...values.entries()].sort((a,b)=>b[1]-a[1]);
+
+}
+
+/* ATUALIZAÇÃO DOS REGISTROS */
+
+function renderReports(){
+
+const reports=getReports();
+
+$('metricReports').textContent=
+
+$('summaryTotal').textContent=reports.length;
+
+$('summaryRegions').textContent=
+
+new Set(reports.map(r=>r.region)).size||96;
+
+barChart('typeChart',counts(reports,'type'));
+
+barChart('regionChart',counts(reports,'region'));
+
+const root=$('reportList');
+
+root.replaceChildren();
+
+if(!reports.length){
+
+const p=document.createElement('p');
+
+p.textContent='Nenhuma ocorrência registrada ainda.';
+
+root.append(p);
+
+return;
+
+}
+
+reports.slice(0,8).forEach(report=>{
+
+const item=document.createElement('article');
+
+item.className='report-item';
+
+const content=document.createElement('div');
+
+const title=document.createElement('b');
+
+title.textContent=`${report.type} · ${report.region}`;
+
+const details=document.createElement('small');
+
+details.textContent=
+
+`${report.neighborhood} · ${report.date} · ${report.protocol}`;
+
+const desc=document.createElement('p');
+
+desc.textContent=report.description;
+
+const status=document.createElement('span');
+
+status.textContent='Registrado';
+
+content.append(title,details,desc);
+
+item.append(content,status);
+
+root.append(item);
+
+});
+
+}
+
+/* FORMULÁRIO */
+
+$('citizenForm').addEventListener('submit',event=>{
+
+event.preventDefault();
+
+const form=event.currentTarget;
+
+if(!form.reportValidity())return;
+
+const reports=getReports();
+
+const report={
+
+protocol:makeProtocol(reports),
+
+name:$('name').value.trim(),
+
+type:$('type').value,
+
+region:$('region').value,
+
+neighborhood:$('neighborhood').value.trim(),
+
+description:$('description').value.trim(),
+
+date:new Date().toLocaleString('pt-BR')
+
+};
+
+if(!report.name||!report.neighborhood||!report.description)return;
+
+if(!saveReports([report,...reports])){
+
+$('resultTitle').textContent='Não foi possível salvar';
+
+$('resultText').textContent=
+
+'Verifique se o navegador permite armazenamento local.';
+
+return;
+
+}
+
+showReport(report);
+
+renderReports();
+
+activity(
+
+'Nova ocorrência registrada',
+
+`${report.type} · ${report.region}`
+
+);
+
+form.reset();
+
+});
+
+/* CONSULTA DE PROTOCOLOS */
+
+$('lookupButton').addEventListener('click',()=>{
+
+const query=$('lookupInput').value.trim().toUpperCase();
+
+if(!query){
+
+$('lookupMessage').textContent='Digite um protocolo.';
+
+return;
+
+}
+
+const report=getReports().find(
+
+r=>r.protocol.toUpperCase()===query
+
+);
+
+$('lookupMessage').textContent=report
+
+?`${report.type}, ${report.neighborhood} (${report.region}). Status: registrado nesta demonstração.`
+
+:'Protocolo não encontrado neste navegador.';
+
+if(report)showReport(report);
+
+});
+
+$('lookupInput').addEventListener('keydown',event=>{
+
+if(event.key==='Enter'){
+
+event.preventDefault();
+
+$('lookupButton').click();
+
+}
+
+});
+
+/* CÓPIA DO PROTOCOLO */
+
+$('copyProtocol').addEventListener('click',async()=>{
+
+const protocol=$('resultProtocol').textContent;
+
+try{
+
+if(navigator.clipboard&&window.isSecureContext){
+
+await navigator.clipboard.writeText(protocol);
+
+}else{
+
+const temp=document.createElement('textarea');
+
+temp.value=protocol;
+
+document.body.appendChild(temp);
+
+temp.select();
+
+const copied=document.execCommand('copy');
+
+temp.remove();
+
+if(!copied)throw new Error('Falha ao copiar');
+
+}
+
+$('copyProtocol').textContent='Copiado!';
+
+}catch{
+
+$('copyProtocol').textContent='Selecione o número acima para copiar';
+
+}
+
+});
+
+/* LIMPEZA DOS REGISTROS */
+
+$('clearReports').addEventListener('click',()=>{
+
+if(!getReports().length)return;
+
+if(!confirm('Apagar todas as ocorrências salvas neste navegador?'))return;
+
+if(!saveReports([])){
+
+alert('Não foi possível apagar os registros.');
+
+return;
+
+}
+
+$('resultTitle').textContent='Acompanhe seu registro';
+
+$('resultText').textContent='Os registros locais foram apagados.';
+
+$('resultDetails').hidden=true;
+
+$('lookupMessage').textContent='';
+
+renderReports();
+
+activity('Registros locais apagados');
+
+});
+
+/* INICIALIZAÇÃO */
+
+renderTraffic();
+
+renderRain();
+
+renderTrash();
+
+renderLight();
+
+renderReports();
+
+activity('Central iniciada','Ambiente demonstrativo');
+
+</script>
+
+</body>
+
+</html>
